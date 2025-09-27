@@ -14,25 +14,37 @@ public class Patient {
 
   }
   
-  public Patient(String firstName, String middleName, String lastName) {
-
+  public Patient(String firstNameGiven, String middleNameGiven, String lastNameGiven) {
+    firstName = firstNameGiven;
+    middleName = middleNameGiven;
+    lastName = lastNameGiven;
   }
 
-  public Patient(String firstName,
-                String middleName,
-                String lastName,
-                String streetAddress,
-                String city,
-                String state,
-                String zipcode,
-                String phoneNumber,
-                String emergencyContactName,
-      String emergencyContactNumber) {
-
-  }
+  public Patient(String firstNameGiven,
+                String middleNameGiven,
+                String lastNameGiven,
+                String streetAddressGiven,
+                String cityGiven,
+                String stateGiven,
+                String zipcodeGiven,
+                String phoneNumberGiven,
+                String emergencyContactNameGiven,
+                String emergencyContactNumberGiven) 
+{
+  firstName = firstNameGiven;
+  middleName = middleNameGiven;
+  lastName = lastNameGiven;
+  streetAddress = streetAddressGiven;
+  city = cityGiven;
+  state = stateGiven;
+  zipcode = zipcodeGiven;
+  phoneNumber = phoneNumberGiven;
+  emergencyContactName = emergencyContactNameGiven;
+  emergencyContactNumber = emergencyContactNumberGiven;
+}
   
   public String buildFullName() {
-    return firstName + " " + lastName;
+    return firstName + " " + middleName + " " + lastName;
   }
 
   public String buildAddress() {
@@ -45,7 +57,7 @@ public class Patient {
 
 //////////////////////////////////
   // public String toString() {
-    
+
   // }
 ///////////////////////////////////
   public String getFirstName() {
