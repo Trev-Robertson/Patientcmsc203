@@ -14,7 +14,7 @@ public class Patient {
 
   }
   
-  public Patient(String firstName, String middleName, String lastname) {
+  public Patient(String firstName, String middleName, String lastName) {
 
   }
 
@@ -44,9 +44,9 @@ public class Patient {
   }
 
 //////////////////////////////////
-  public String toString() {
+  // public String toString() {
     
-  }
+  // }
 ///////////////////////////////////
   public String getFirstName() {
     return firstName;
