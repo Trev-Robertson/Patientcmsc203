@@ -1,14 +1,13 @@
 import java.util.Scanner;
-import java.util.UUID;
 
 public class PatientDriverApp {
-  final private Scanner KEYBOARD = new Scanner(System.in);
-  final private String CURRENT_USER = "";
+  final private static Scanner KEYBOARD = new Scanner(System.in);
+  final private Object CURRENT_USER = null;
 
   public static void main(String[] args) {
     String menuSelection = "";
     int intMenuSelection = 0;
-    Scanner keyboard = new Scanner(System.in);
+    Scanner KEYBOARD = new Scanner(System.in);
 
     while (true) {
       Boolean exitToMenu = false;
@@ -24,7 +23,7 @@ public class PatientDriverApp {
 
             """);
 
-      menuSelection = keyboard.nextLine();
+      menuSelection = KEYBOARD.nextLine();
       try {
         intMenuSelection = Integer.parseInt(menuSelection);
       } catch (NumberFormatException e) {
@@ -56,42 +55,42 @@ public class PatientDriverApp {
     System.out.println("New Patient Intake\n\n");
 
     System.out.println("First Name:");
-    patient.setFirstName(keyboard.nextLine());
+    patient.setFirstName(KEYBOARD.nextLine());
 
     System.out.println("\nMiddle Name:");
-    patient.setMiddleName(keyboard.nextLine());
+    patient.setMiddleName(KEYBOARD.nextLine());
 
     System.out.println("\nLast Name:");
-    patient.setLastName(keyboard.nextLine());
+    patient.setLastName(KEYBOARD.nextLine());
 
     System.out.println("\nStreet Address");
-    patient.setStreetAddress(keyboard.nextLine());
+    patient.setStreetAddress(KEYBOARD.nextLine());
 
     System.out.println("\ncity");
-    patient.setCity(keyboard.nextLine());
+    patient.setCity(KEYBOARD.nextLine());
 
     System.out.println("\nState");
-    patient.setState(keyboard.nextLine());
+    patient.setState(KEYBOARD.nextLine());
 
     System.out.println("\nZipcode");
-    patient.setZipcode(keyboard.nextLine());
+    patient.setZipcode(KEYBOARD.nextLine());
 
     System.out.println("\nPhone Number");
-    patient.setPhoneNumber(keyboard.nextLine());
+    patient.setPhoneNumber(KEYBOARD.nextLine());
 
     System.out.println("\nEmergency Contact Name");
-    patient.setEmergencyContactName(keyboard.nextLine());
+    patient.setEmergencyContactName(KEYBOARD.nextLine());
 
     System.out.println("\nEmergency Contact Number");
-    patient.setEmergencyContactName(keyboard.nextLine());
+    patient.setEmergencyContactName(KEYBOARD.nextLine());
 
-    createProcedures();
+    // createProcedures();
 
   }
 
-  private void createProcedures() {
-    key
-  }
+  // private void createProcedures() {
+  
+  // }
 
   public void displayPatient() {
 
