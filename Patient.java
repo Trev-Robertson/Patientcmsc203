@@ -29,7 +29,7 @@ public class Patient {
 
   }
   
-  
+
   /**
    * Creates a Patient with first middle and last name.
    *
@@ -116,9 +116,9 @@ public class Patient {
    * @return all patient information.
    */
   public String toString() {
-    String patientInfo = String.format("%s%n%s%n%s%n%s", buildFullName(), getPhoneNumber(), buildAddress(), buildEmergencyContact());
-    System.out.println(patientInfo);
-    return patientInfo;
+    String allPatientInfo = String.format("%s%n%s%n%s%n%s", buildFullName(), getPhoneNumber(), buildAddress(), buildEmergencyContact());
+    System.out.println(allPatientInfo);
+    return allPatientInfo;
   }
 
   /**
