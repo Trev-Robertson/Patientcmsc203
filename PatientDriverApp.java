@@ -7,10 +7,11 @@ public class PatientDriverApp {
   public static void main(String[] args) {
     String menuSelection = "";
     int intMenuSelection = 0;
+    boolean exitToMenu = true;
     Scanner KEYBOARD = new Scanner(System.in);
 
-    while (true) {
-      Boolean exitToMenu = false;
+    while (exitToMenu) {
+      exitToMenu = false;
 
       System.out.println("""
           "Welcome to Patient Records.
