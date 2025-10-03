@@ -116,8 +116,7 @@ public class Patient {
    * @return all patient information.
    */
   public String toString() {
-    String allPatientInfo = String.format("  Name: %s%n Address: %s%n  Emergency Contact: %s%n", buildFullName(), buildAddress(), buildEmergencyContact());
-    System.out.println(allPatientInfo);
+    String allPatientInfo = String.format("  Name: %s%n  Address: %s%n  Emergency Contact: %s%n", buildFullName(), buildAddress(), buildEmergencyContact());
     return allPatientInfo;
   }
 

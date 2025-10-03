@@ -20,50 +20,57 @@ public class PatientDriverApp {
     createNewPatient(newPatient);
     System.out.println();
     createProcedure(procedure1);
-    // createProcedure(procedure2);
-    // createProcedure(procedure3);
+    createProcedure(procedure2);
+    createProcedure(procedure3);
 
     System.out.println("Patient info:");
     displayPatient(newPatient);
+    System.out.println(displayProcedure(procedure1, procedure2, procedure3));
+    System.out.print("""
+
+        Student Name: Trevahr Robertson
+        MC#: M21240049
+        Due Date: 10/03/2025
+        """);
+    ;
+
   }
   
 
-  public static void displayProcedure(Procedure proc1, Procedure proc2, Procedure proc3){
-    System.out.println(proc1.toString());
-    System.out.println(proc2.toString());
-    System.out.println(proc3.toString());
+  public static String displayProcedure(Procedure proc1, Procedure proc2, Procedure proc3){
+    return proc1.toString();
   }
   
   public static String calculateTotalCharges(String charge1, String charge2, String charge3) {
     return charge1;
   }
 
-  public static  String displayPatient(Patient finishedPatient) {
-    return finishedPatient.toString();
+  public static  void displayPatient(Patient finishedPatient) {
+     System.out.println(finishedPatient.toString());
   }
 
   private static void createNewPatient(Patient newPatient) {
     
-    System.out.print("First Name:  ");
+    System.out.print("First Name: ");
     newPatient.setFirstName(KEYBOARD.nextLine());
 
-    System.out.print("\nMiddle Name:  ");
+    System.out.print("\nMiddle Name: ");
     newPatient.setMiddleName(KEYBOARD.nextLine());
 
-    System.out.print("\nLast Name:  ");
+    System.out.print("\nLast Name: ");
     newPatient.setLastName(KEYBOARD.nextLine());
 
-    System.out.print("\nStreet Address:  ");
+    System.out.print("\nStreet Address: ");
     newPatient.setStreetAddress(KEYBOARD.nextLine());
 
-    System.out.print("\nCity:  ");
+    System.out.print("\nCity: ");
     newPatient.setCity(KEYBOARD.nextLine());
 
-    System.out.print("\nState:  ");
+    System.out.print("\nState: ");
     newPatient.setState(KEYBOARD.nextLine());
 
     while (true) { 
-      System.out.print("\n5-digit Zipcode:  ");
+      System.out.print("\n5-digit Zipcode: ");
       String zipcode = KEYBOARD.nextLine();
     if (checkStringIsValidNumber(zipcode, 5)) {
         newPatient.setZipcode(zipcode);

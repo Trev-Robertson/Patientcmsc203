@@ -21,8 +21,7 @@ public class Procedure {
   }
 
   public String toString() {
-    String allProcedureInformation = String.format("%s%n%s%n%s%n%s", procedureName, date, practitionerName, charge);
-    System.out.println(allProcedureInformation);
+    String allProcedureInformation = String.format("\tProcedure: %s%n\tProcedureDate=%s%n\tPractitioner=%s\tnCharge=%s", procedureName, date, practitionerName, charge);
     return allProcedureInformation;
   }
 
