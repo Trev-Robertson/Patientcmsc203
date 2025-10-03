@@ -23,22 +23,27 @@ public class PatientDriverApp {
     createProcedure(procedure2);
     createProcedure(procedure3);
 
-    System.out.println("Patient info:");
+    System.out.println("\nPatient info:");
     displayPatient(newPatient);
-    System.out.println(displayProcedure(procedure1, procedure2, procedure3));
+    System.out.println();
+    displayProcedures(procedure1, procedure2, procedure3);
+    System.out.println();
+    displayTotalProceduresCost(procedure1, procedure2, procedure3);
     System.out.print("""
-
+        \n
         Student Name: Trevahr Robertson
         MC#: M21240049
         Due Date: 10/03/2025
         """);
-    ;
 
   }
-  
 
-  public static String displayProcedure(Procedure proc1, Procedure proc2, Procedure proc3){
-    return proc1.toString();
+  public static void displayTotalProceduresCost(Procedure proc1ForCost, Procedure proc2ForCost, Procedure proc3ForCost) {
+    System.out.printf("%nTotal Charges: $%s", proc1ForCost.getCharge() + proc2ForCost.getCharge() + proc3ForCost.getCharge());
+  }
+
+  public static void displayProcedures(Procedure proc1, Procedure proc2, Procedure proc3){
+    System.out.printf("%s%n%n%s%n%n%s", proc1.toString(), proc2.toString(), proc3.toString());
   }
   
   public static String calculateTotalCharges(String charge1, String charge2, String charge3) {
@@ -94,24 +99,26 @@ public class PatientDriverApp {
     
 
   private static void createProcedure(Procedure newProcedure) {
-    System.out.println("\nEnter Procedure information\n\n");
+    System.out.println("\nEnter Procedure information.\n");
 
-    System.out.println("Procedure Name:");
+    System.out.print("Procedure Name: ");
     newProcedure.setProcedureName(KEYBOARD.nextLine());
 
-    System.out.println("\nDate");
+    System.out.print("\nDate: ");
     newProcedure.setDate((KEYBOARD.nextLine()));
       
 
-    System.out.println("\nPractitioner:");
+    System.out.print("\nPractitioner: ");
     newProcedure.setPractitionerName(KEYBOARD.nextLine());
 
-    System.out.println("\nCharge: ");
-    newProcedure.setCharge(KEYBOARD.nextLine());
+    System.out.print("\nCharge: $");
+    String newCharge = KEYBOARD.nextLine();
+    newProcedure.setCharge(Double.parseDouble(newCharge));
 
   }
 
 
+  @SuppressWarnings("UnnecessaryTemporaryOnConversionFromString")
   private static boolean checkStringIsValidNumber(String stringToConvert, double desiredLength) {
     try {
       if (stringToConvert.length() == desiredLength) {

@@ -3,7 +3,7 @@ public class Procedure {
   private String procedureName;
   private String date;
   private String practitionerName;
-  private String charge;
+  private double charge;
 
   public Procedure() {
   }
@@ -13,7 +13,7 @@ public class Procedure {
     date = newDate;
   }
 
-  public Procedure(String newProcedureName, String newDate, String newPractitionerName, String newCharge) {
+  public Procedure(String newProcedureName, String newDate, String newPractitionerName, double newCharge) {
     procedureName = newProcedureName;
     date = newDate;
     practitionerName = newPractitionerName;
@@ -21,7 +21,7 @@ public class Procedure {
   }
 
   public String toString() {
-    String allProcedureInformation = String.format("\tProcedure: %s%n\tProcedureDate=%s%n\tPractitioner=%s\tnCharge=%s", procedureName, date, practitionerName, charge);
+    String allProcedureInformation = String.format("\tProcedure: %s%n\tProcedureDate=%s%n\tPractitioner=%s%n\tCharge=%s", procedureName, date, practitionerName, charge);
     return allProcedureInformation;
   }
 
@@ -37,7 +37,7 @@ public class Procedure {
     return practitionerName;
   }
 
-  public String getCharge() {
+  public double getCharge() {
     return charge;
   }
 
@@ -53,7 +53,7 @@ public class Procedure {
     practitionerName = changedPractitionerName;
   }
 
-  public void setCharge(String changedCharge) {
+  public void setCharge(double changedCharge) {
     charge = changedCharge;
   }
   
