@@ -1,3 +1,4 @@
+package src.main;
 /**
  * Represents a patient containing personal and contact information.
  *
