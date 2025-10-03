@@ -10,16 +10,16 @@
  * @author Trevahr Robertson
  */
 public class Patient {
-  private String firstName; /** Patient's first name. */
-  private String middleName; /** Patient's middle name. */
-  private String lastName; /** Patient's last name. */
-  private String streetAddress; /** Patient's street address. */
-  private String city; /** Patient's city. */
-  private String state; /** Patient's state. */
-  private String zipcode; /** Patient's zip code. */
-  private String phoneNumber; /** Patient's phone number. */
-  private String emergencyContactName; /** Patient's emergency contact. */
-  private String emergencyContactNumber; /** Patient's emergency contact's phone number. */
+  private String firstName; // Patient's first name.
+  private String middleName;// Patient's middle name.
+  private String lastName;// Patient's last name.
+  private String streetAddress;// Patient's street address.
+  private String city;// Patient's city.
+  private String state;// Patient's state.
+  private String zipcode;// Patient's zip code.
+  private String phoneNumber;// Patient's phone number.
+  private String emergencyContactName;// Patient's emergency contact.
+  private String emergencyContactNumber;// Patient's emergency contact's phone number.
   
 
   /**
@@ -116,7 +116,7 @@ public class Patient {
    * @return all patient information.
    */
   public String toString() {
-    String allPatientInfo = String.format("%s%n%s%n%s%n%s", buildFullName(), getPhoneNumber(), buildAddress(), buildEmergencyContact());
+    String allPatientInfo = String.format("  Name: %s%n Address: %s%n  Emergency Contact: %s%n", buildFullName(), buildAddress(), buildEmergencyContact());
     System.out.println(allPatientInfo);
     return allPatientInfo;
   }

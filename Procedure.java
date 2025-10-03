@@ -1,8 +1,9 @@
+
 public class Procedure {
   private String procedureName;
   private String date;
   private String practitionerName;
-  private String charges;
+  private String charge;
 
   public Procedure() {
   }
@@ -12,15 +13,15 @@ public class Procedure {
     date = newDate;
   }
 
-  public Procedure(String newProcedureName, String newDate, String newPractitionerName, String newCharges) {
+  public Procedure(String newProcedureName, String newDate, String newPractitionerName, String newCharge) {
     procedureName = newProcedureName;
     date = newDate;
     practitionerName = newPractitionerName;
-    charges = newCharges;
+    charge = newCharge;
   }
 
   public String toString() {
-    String allProcedureInformation = String.format("%s%n%s%n%s%n%s", procedureName, date, practitionerName, charges);
+    String allProcedureInformation = String.format("%s%n%s%n%s%n%s", procedureName, date, practitionerName, charge);
     System.out.println(allProcedureInformation);
     return allProcedureInformation;
   }
@@ -37,8 +38,8 @@ public class Procedure {
     return practitionerName;
   }
 
-  public String getCharges() {
-    return charges;
+  public String getCharge() {
+    return charge;
   }
 
   public void setProcedureName(String changedProcedureName) {
@@ -53,8 +54,8 @@ public class Procedure {
     practitionerName = changedPractitionerName;
   }
 
-  public void setCharges(String changedCharges) {
-    charges = changedCharges;
+  public void setCharge(String changedCharge) {
+    charge = changedCharge;
   }
   
 }

@@ -2,106 +2,133 @@ import java.util.Scanner;
 
 public class PatientDriverApp {
   final private static Scanner KEYBOARD = new Scanner(System.in);
-  final private Object CURRENT_USER = null;
+
+  // private static boolean isDateValid = false;
 
   public static void main(String[] args) {
-    String menuSelection = "";
-    int intMenuSelection = 0;
-    Scanner KEYBOARD = new Scanner(System.in);
-
-    while (true) {
-      Boolean exitToMenu = false;
-
-      System.out.println("""
-          "Welcome to Patient Records.
-          Please select a number from the the following options:
-
-            1. Create new Patient.
-            2. Edit Patient
-            3. Show Current User Information
-            4. EXIT.
-
-            """);
-
-      menuSelection = KEYBOARD.nextLine();
-      try {
-        intMenuSelection = Integer.parseInt(menuSelection);
-      } catch (NumberFormatException e) {
-        System.out.println("Invalid Entry\n Please choose again.");
-        continue;
-      }
-
-      switch (Integer.parseInt(menuSelection)) {
-        case 1:
-          createNewPatient();
-          break;
-        case 2:
-          break;
-        case 3:
-          break;
-        default:
-          exitToMenu = true;
-          System.out.println("Invalid Entry\n Please choose again.");
-          continue;
-      }
-
-    }
-
-  }
-
-  private static void createNewPatient() {
-    Patient patient = new Patient();
-
-    System.out.println("New Patient Intake\n\n");
-
-    System.out.println("First Name:");
-    patient.setFirstName(KEYBOARD.nextLine());
-
-    System.out.println("\nMiddle Name:");
-    patient.setMiddleName(KEYBOARD.nextLine());
-
-    System.out.println("\nLast Name:");
-    patient.setLastName(KEYBOARD.nextLine());
-
-    System.out.println("\nStreet Address");
-    patient.setStreetAddress(KEYBOARD.nextLine());
-
-    System.out.println("\ncity");
-    patient.setCity(KEYBOARD.nextLine());
-
-    System.out.println("\nState");
-    patient.setState(KEYBOARD.nextLine());
-
-    System.out.println("\nZipcode");
-    patient.setZipcode(KEYBOARD.nextLine());
-
-    System.out.println("\nPhone Number");
-    patient.setPhoneNumber(KEYBOARD.nextLine());
-
-    System.out.println("\nEmergency Contact Name");
-    patient.setEmergencyContactName(KEYBOARD.nextLine());
-
-    System.out.println("\nEmergency Contact Number");
-    patient.setEmergencyContactName(KEYBOARD.nextLine());
-
-    // createProcedures();
-
-  }
-
-  // private void createProcedures() {
+    Patient newPatient = new Patient();
   
-  // }
+    Procedure procedure1 = new Procedure();
+    Procedure procedure2 = new Procedure();
+    Procedure procedure3 = new Procedure();
+    System.out.println("""
+        "Welcome to Patient Records.
 
-  public void displayPatient() {
+        Please enter the following patient information:
+          """);
+    
+    createNewPatient(newPatient);
+    System.out.println();
+    createProcedure(procedure1);
+    // createProcedure(procedure2);
+    // createProcedure(procedure3);
 
+    System.out.println("Patient info:");
+    displayPatient(newPatient);
   }
   
-  public void displayProcedure() {
 
+  public static void displayProcedure(Procedure proc1, Procedure proc2, Procedure proc3){
+    System.out.println(proc1.toString());
+    System.out.println(proc2.toString());
+    System.out.println(proc3.toString());
   }
   
-  public String calculateTotalCharges(String charge1, String charge2, String charge3) {
+  public static String calculateTotalCharges(String charge1, String charge2, String charge3) {
     return charge1;
   }
+
+  public static  String displayPatient(Patient finishedPatient) {
+    return finishedPatient.toString();
+  }
+
+  private static void createNewPatient(Patient newPatient) {
+    
+    System.out.print("First Name:  ");
+    newPatient.setFirstName(KEYBOARD.nextLine());
+
+    System.out.print("\nMiddle Name:  ");
+    newPatient.setMiddleName(KEYBOARD.nextLine());
+
+    System.out.print("\nLast Name:  ");
+    newPatient.setLastName(KEYBOARD.nextLine());
+
+    System.out.print("\nStreet Address:  ");
+    newPatient.setStreetAddress(KEYBOARD.nextLine());
+
+    System.out.print("\nCity:  ");
+    newPatient.setCity(KEYBOARD.nextLine());
+
+    System.out.print("\nState:  ");
+    newPatient.setState(KEYBOARD.nextLine());
+
+    while (true) { 
+      System.out.print("\n5-digit Zipcode:  ");
+      String zipcode = KEYBOARD.nextLine();
+    if (checkStringIsValidNumber(zipcode, 5)) {
+        newPatient.setZipcode(zipcode);
+        break;
+      }
+      else {
+        System.out.print("Invalid entry, please try again\n");
+      }
+    }
+
+    System.out.print("\nPhone Number (no spaces or dashes):  ");
+    newPatient.setPhoneNumber(KEYBOARD.nextLine());
+
+    System.out.print("\nEmergency Contact Name:  ");
+    newPatient.setEmergencyContactName(KEYBOARD.nextLine());
+
+    System.out.println("\n10 digit Emergency Contact Number:  ");
+    newPatient.setEmergencyContactNumber(KEYBOARD.nextLine());
+  }
+
+    
+
+  private static void createProcedure(Procedure newProcedure) {
+    System.out.println("\nEnter Procedure information\n\n");
+
+    System.out.println("Procedure Name:");
+    newProcedure.setProcedureName(KEYBOARD.nextLine());
+
+    System.out.println("\nDate");
+    newProcedure.setDate((KEYBOARD.nextLine()));
+      
+
+    System.out.println("\nPractitioner:");
+    newProcedure.setPractitionerName(KEYBOARD.nextLine());
+
+    System.out.println("\nCharge: ");
+    newProcedure.setCharge(KEYBOARD.nextLine());
+
+  }
+
+
+  private static boolean checkStringIsValidNumber(String stringToConvert, double desiredLength) {
+    try {
+      if (stringToConvert.length() == desiredLength) {
+        Double.parseDouble(stringToConvert);
+        return true;
+      } else {
+        return false;
+      }
+    } catch (NumberFormatException | NullPointerException e) {
+      return false;
+    }
+  }
+  
+  // private static LocalDate dateFormatter(String dateAsString) {
+  //   String datePattern = "MM/dd/yyyy";
+  //   DateTimeFormatter formatter = DateTimeFormatter.ofPattern(datePattern);
+  //   try {
+  //     isDateValid = true
+  //     return LocalDate.parse(dateAsString, formatter);
+       
+  //   } catch (IllegalArgumentException | DateTimeParseException e) {
+  //     isDateValid = false
+  //   }
+  // }
+  
 
 }
