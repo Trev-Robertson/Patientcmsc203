@@ -1,5 +1,3 @@
-package src.main;
-
 public class Procedure {
   private String procedureName;
   private String date;
