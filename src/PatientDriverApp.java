@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * Class: CMSC203
+ * Instructor: Gary Thai
+ * Due: 10/03/2025 
+ * Trevahr Robertson
+ */
+
 public class PatientDriverApp {
   final private static Scanner KEYBOARD = new Scanner(System.in);
   final private static String FIRST_NAME__STRING = "First Name";
