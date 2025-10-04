@@ -16,10 +16,10 @@ public class Patient {
   private String streetAddress;// Patient's street address.
   private String city;// Patient's city.
   private String state;// Patient's state.
-  private int zipcode;// Patient's zip code.
-  private int phoneNumber;// Patient's phone number.
+  private String zipcode;// Patient's zip code.
+  private String phoneNumber;// Patient's phone number.
   private String emergencyContactName;// Patient's emergency contact.
-  private int emergencyContactNumber;// Patient's emergency contact's phone number.
+  private String emergencyContactNumber;// Patient's emergency contact's phone number.
   
 
   /**
@@ -63,10 +63,10 @@ public class Patient {
                 String streetAddressGiven,
                 String cityGiven,
                 String stateGiven,
-                int zipcodeGiven,
-                int phoneNumberGiven,
+                String zipcodeGiven,
+                String phoneNumberGiven,
                 String emergencyContactNameGiven,
-                int emergencyContactNumberGiven) 
+                String emergencyContactNumberGiven) 
 {
   firstName = firstNameGiven;
   middleName = middleNameGiven;
@@ -87,10 +87,6 @@ public class Patient {
    * @return a single-line string containing the patient's full name
    */
   public String buildFullName() {
-    // String phoneToString = String.valueOf(getPhoneNumber());
-    // String phoneNumStringFormatted = phoneToString.substring(0,3) 
-    //                                 + "-" + phoneToString.substring(3,6)
-    //                                 + "-" + phoneToString.substring(6);
     return String.format("%s %s %s %s", getFirstName(), getMiddleName(), getLastName(), PatientDriverApp.phoneNumberBuilder(getPhoneNumber()));
   }
 
@@ -183,7 +179,7 @@ public class Patient {
    *
    * @return zipcode.
    */
-  public int getZipcode() {
+  public String getZipcode() {
     return zipcode;  
   }
 
@@ -192,7 +188,7 @@ public class Patient {
    *
    * @return phone number.
    */
-  public int getPhoneNumber() {
+  public String getPhoneNumber() {
     return phoneNumber;  
   }
 
@@ -210,7 +206,7 @@ public class Patient {
    *
    * @return emergency contact phone number.
    */
-  public int getEmergencyContactNumber() {
+  public String getEmergencyContactNumber() {
     return emergencyContactNumber;
   }
 
@@ -273,7 +269,7 @@ public class Patient {
   *
   * @param changedZipcode new zipcode
   */
-  public void setZipcode(int changedZipcode) {
+  public void setZipcode(String changedZipcode) {
     zipcode = changedZipcode;  
   }
 
@@ -282,7 +278,7 @@ public class Patient {
   *
   * @param changedPhoneNumber new phone number
   */
-  public void setPhoneNumber(int changedPhoneNumber) {
+  public void setPhoneNumber(String changedPhoneNumber) {
     phoneNumber = changedPhoneNumber;  
   }
 
@@ -300,7 +296,7 @@ public class Patient {
   *
   * @param changedEmergencyContactNumber new emergency contact phone number
   */
-  public void setEmergencyContactNumber(int changedEmergencyContactNumber) {
+  public void setEmergencyContactNumber(String changedEmergencyContactNumber) {
     emergencyContactNumber = changedEmergencyContactNumber;  
   }
   

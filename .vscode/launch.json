@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // Option 1 — Let the Java extension compute classpath (recommended)
+    {
+      "type": "java",
+      "name": "Debug PatientDriverApp (project cp)",
+      "request": "launch",
+      "mainClass": "PatientDriverApp",
+      "console": "internalConsole",
+      "projectName": "${workspaceFolderBasename}",
+      "vmArgs": "-Djava.net.preferIPv4Stack=true"
+    },
+
+    // Option 2 — Force classpath explicitly to bin/
+    {
+      "type": "java",
+      "name": "Debug PatientDriverApp (explicit cp)",
+      "request": "launch",
+      "mainClass": "PatientDriverApp",
+      "classPaths": ["${workspaceFolder}/bin"],
+      "sourcePaths": ["${workspaceFolder}/src"],
+      "console": "internalConsole",
+      "vmArgs": "-Djava.net.preferIPv4Stack=true"
+    }
+  ]
+}

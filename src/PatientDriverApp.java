@@ -52,7 +52,7 @@ public class PatientDriverApp {
   }
 
   public static void displayTotalProceduresCost(Procedure proc1ForCost, Procedure proc2ForCost, Procedure proc3ForCost) {
-    System.out.printf("%nTotal Charges: $%s", proc1ForCost.getCharge() + proc2ForCost.getCharge() + proc3ForCost.getCharge());
+    System.out.printf("%nTotal Charges: $%.2f", proc1ForCost.getCharge() + proc2ForCost.getCharge() + proc3ForCost.getCharge());
   }
 
   public static void displayProcedures(Procedure proc1, Procedure proc2, Procedure proc3){
@@ -80,12 +80,12 @@ public class PatientDriverApp {
     System.out.println();
     newPatient.setState(inputValidationLoop(STATE__STRING));
     System.out.println();
-    newPatient.setZipcode(intNumberInputLoop(FIVE_DIGIT_ZIPCODE, 5));
-    newPatient.setPhoneNumber(intNumberInputLoop(PATIENT_PHONE_STRING, 10));
+    newPatient.setZipcode(inputValidationLoop(FIVE_DIGIT_ZIPCODE, 5));
+    newPatient.setPhoneNumber(inputValidationLoop(PATIENT_PHONE_STRING, 10));
     System.out.println();
     newPatient.setEmergencyContactName(inputValidationLoop(EMERGENCY_NAME_STRING));
     System.out.println();
-    newPatient.setEmergencyContactNumber(intNumberInputLoop(EMERGENCY_NUMBER_STRING, 10));
+    newPatient.setEmergencyContactNumber(inputValidationLoop(EMERGENCY_NUMBER_STRING, 10));
   }
 
     
@@ -113,6 +113,17 @@ public class PatientDriverApp {
     }
   }
 
+    private static String inputValidationLoop(String stringToLoop, int lengthConstraint) {
+    while (true) {
+      System.out.print(stringToLoop + ":  ");
+      String input = KEYBOARD.nextLine().strip();
+      if (!input.isBlank() && input.length() == lengthConstraint) {
+        return input;
+      }
+      System.out.printf("%n" + INVALID_STRING_INPUT + "%n%n", stringToLoop);
+    }
+  }
+
   private static double numberInputLoop(String promptToShow) {
     while (true) {
       System.out.print(promptToShow + ":  ");
@@ -134,28 +145,29 @@ public class PatientDriverApp {
 
   
   private static int intNumberInputLoop(String promptToShow, int digitsNeeded) {
+    String userNumberInput="";
     while (true) {
       System.out.print(promptToShow + ":  ");
-      String userNumberInput = KEYBOARD.nextLine().strip();
-      if (userNumberInput.isBlank() || userNumberInput.length() != digitsNeeded) {
-        System.out.printf("%n" + INVALID_STRING_INPUT + "%n%n", promptToShow);
-        continue;
-      }
+        userNumberInput = KEYBOARD.nextLine().strip();
       try {
-          System.out.println();
+        if (userNumberInput.length() == digitsNeeded) {
           return Integer.parseInt(userNumberInput);
+        }
+        else {
+          System.out.printf("%n" + INVALID_STRING_INPUT + "%n%n", promptToShow);
+          System.out.println();
+        }
       } catch (NumberFormatException | NullPointerException e) {
-        System.out.printf("%n" + INVALID_STRING_INPUT + "%n%n", promptToShow);
+        System.out.printf("%n" + INVALID_STRING_INPUT + "%nlength is %s%nIs it Blank? %s%nIs it not equal to digits needed? %s%nWhat is digits needed? %s%nI have NO idea%s%n", promptToShow, userNumberInput.length(), userNumberInput.isBlank(),  userNumberInput.length() != digitsNeeded, digitsNeeded, userNumberInput.length() == digitsNeeded);
       }
 
     }
   }
 
-  public static String phoneNumberBuilder(double tenDigitNumber) {
-    String phoneToString = String.valueOf(tenDigitNumber);
-    return phoneToString.substring(0,3) 
-                                    + "-" + phoneToString.substring(3,6)
-                                    + "-" + phoneToString.substring(6);
+  public static String phoneNumberBuilder(String tenDigitNumber) {
+    return tenDigitNumber.substring(0,3) 
+                                    + "-" + tenDigitNumber.substring(3,6)
+                                    + "-" + tenDigitNumber.substring(6);
   }
 
 
